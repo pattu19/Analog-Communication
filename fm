@@ -1,0 +1,24 @@
+close all;
+clear all;
+t=-0.001:0.000001:0.001;
+% v = A sin [ wct + (Δf / fm) sin wmt ]
+tf=7500;
+fc=10000;
+df=1/tf;
+A=10;
+fm=500;
+mf=df/fm;
+wm=2*pi*fm;
+wc=2*pi*fc;
+cs=A*sin(wc*t);
+ms=A*sin(wm*t);
+v=A*sin((wc*t)+((tf/fm)*sin(wm*t)));
+subplot(3,1,1)
+plot(t,cs);
+title('Carrier signal')
+subplot(3,1,2)
+plot(t,ms);
+title('message signal');
+subplot(3,1,3)
+plot(t,v);
+title('FM')
