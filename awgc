@@ -1,0 +1,19 @@
+clear all;
+close all;
+clc;
+fs=1000;
+f=10;
+t=0:(1/fs):1;
+SNR=3;
+s=5*square(2*pi*f*t);
+s_n=awgn(s,SNR,'measured');
+subplot(2,1,1)
+plot(t,s,'g','linewidth',4);
+xlabel("TIME");
+ylabel("AMPLITUDE");
+title("INPUT SIGNAL");
+subplot(2,1,2)
+plot(t,s,'g',t,s_n,'b','linewidth',2);
+xlabel("TIME");
+ylabel("AMPLITUDE");
+title("INPUT SIGNAL WITH AWGN NOISE");
